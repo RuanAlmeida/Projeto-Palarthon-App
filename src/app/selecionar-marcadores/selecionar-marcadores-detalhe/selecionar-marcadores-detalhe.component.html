@@ -18,12 +18,27 @@
         <h6>Local: </h6><p>{{dadosPl?.Materia?.SituacaoAtual?.Autuacoes?.Autuacao?.Local?.NomeLocal || nulo}}</p>
         <h6>Descrição: </h6><p>{{dadosPl?.Materia?.SituacaoAtual?.Autuacoes?.Autuacao?.Situacao?.DescricaoSituacao || nulo}}</p>
         <h6>Tramitação:</h6>
-        
-        <!-- •Nº e ano na outra Casa: PLS 82/2012
-        • Forma de tramitação: tramitação conclusiva (não vai a Plenário)
-        • Regime de tramitação: prioridade
-        • Tramitação: data, órgão, ação (... vários registros ...) -->
 
+        <div class="accordion">
+            <div class="card" *ngFor="let ts of tramitacaoSenado" >
+              <div class="card-header" (click)="ts.IdentificacaoTramitacao.NumeroAutuacao = !ts.IdentificacaoTramitacao.NumeroAutuacao" [attr.aria-expanded]="!ts.IdentificacaoTramitacao.NumeroAutuacao" aria-controls="collapseBasic">
+                <h5 class="mb-0">
+                    {{ts?.IdentificacaoTramitacao?.TextoTramitacao || nulo}} - {{ts?.IdentificacaoTramitacao?.DataTramitacao | date:'dd/MM/y' || nulo}}
+                </h5>
+              </div>
+          
+              <div id="collapseOne" [collapse]="ts.IdentificacaoTramitacao.NumeroAutuacao">
+                <div class="card-body">
+                  <h5>Data</h5>
+                  <p>{{ts?.IdentificacaoTramitacao?.DataTramitacao | date:'dd/MM/y' || nulo}}</p>
+                  <h5>Tramitação</h5>
+                  <p>{{ts?.IdentificacaoTramitacao?.TextoTramitacao || nulo}}</p>
+                  <h5>Situação</h5>
+                  <p>{{ts?.IdentificacaoTramitacao?.Situacao?.DescricaoSituacao || nulo}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 </div>
 </div>
@@ -45,23 +60,34 @@
           <h5>Regime de tramitação</h5>
           <p>{{dadosPl?.statusProposicao.regime || nulo}}</p>
           <h5>Tramitação</h5>
-          <div class="accordion" id="accordionExample">
-            <div class="card">
-              <div class="card-header" id="headingOne">
+
+          <div class="accordion">
+            <div class="card" *ngFor="let tc of tramitacaoCamara" >
+              <div class="card-header" (click)="tc.sequencia = !tc.sequencia" [attr.aria-expanded]="!tc.sequencia" aria-controls="collapseBasic">
                 <h5 class="mb-0">
-                  <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    Collapsible Group Item #1
-                  </button>
+                    {{tc?.descricaoTramitacao || nulo}} - {{tc?.dataHora | date:'dd/MM/y' || nulo}}
                 </h5>
               </div>
           
-              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+              <div id="collapseOne" [collapse]="tc.sequencia">
                 <div class="card-body">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+                  <h5>Data</h5>
+                  <p>{{tc?.dataHora | date:'dd/MM/y' || nulo}}</p>
+                  <h5>Tramitação</h5>
+                  <p>{{tc?.descricaoTramitacao || nulo}}</p>
+                  <h5>Orgão</h5>
+                  <p>{{tc?.siglaOrgao || nulo}}</p>
+                  <h5>Descrição da situação</h5>
+                  <p>{{tc?.descricaoSituacao || nulo}}</p>
+                  <h5>Regime da tramitação</h5>
+                  <p>{{tc?.regime || nulo}}</p>
+                  <h5>Despacho</h5>
+                  <p>{{tc?.despacho || nulo}}</p>
                 </div>
               </div>
             </div>
           </div>
+          <br>
           
           <!-- •Nº e ano na outra Casa: PLS 82/2012
           • Forma de tramitação: tramitação conclusiva (não vai a Plenário)

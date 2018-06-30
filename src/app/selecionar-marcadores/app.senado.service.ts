@@ -24,7 +24,13 @@ export class AppSenadoService {
   getPlsSenado(numero, siglaTipo, ano, autor, tramitacao, codSituacao) {
     return this.http.get(`${API_ROTA.SENADO}materia/pesquisa/lista.json?numero=${numero}&sigla=${siglaTipo}&ano=${ano}&nomeAutor=${autor}&tramitando=${tramitacao}&codigoSituacao=${codSituacao}`)
     .catch((e: any) => Observable.throw(this.errorHandler(e)));
-    };
+  };
+  
+  getTramitacao(codMateria) {
+    return this.http.get(`${API_ROTA.SENADO}materia/movimentacoes/${codMateria}.json`)
+    .catch((e: any) => Observable.throw(this.errorHandler(e)));
+
+  }
 
     errorHandler(error: any) : void {
       console.log(error);

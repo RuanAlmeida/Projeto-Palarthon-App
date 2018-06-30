@@ -1,8 +1,6 @@
-import { AppSenadoService } from './../selecionar-marcadores/app.senado.service';
-import { AppCamaraService } from './../selecionar-marcadores/app.camara.service';
 import { Component, OnInit } from '@angular/core';
-import { AppSenadoService } from './../app.senado.service';
-import { AppCamaraService } from '../app.camara.service';
+import { AppSenadoService } from './app.senado.service';
+import { AppCamaraService } from './app.camara.service';
 
 
 @Component({

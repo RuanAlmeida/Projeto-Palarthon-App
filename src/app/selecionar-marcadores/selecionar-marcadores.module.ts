@@ -10,6 +10,7 @@ import { SelecionarMarcadoresComponent } from './selecionar-marcadores.component
 import { SelecionarmarcadosRoutingModule } from './selecionar-marcadores.routing.module';
 import { AppSenadoService } from './app.senado.service';
 import { AppCamaraService } from './app.camara.service';
+import { CollapseModule } from 'ngx-bootstrap';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { AppCamaraService } from './app.camara.service';
       FormsModule,
       ReactiveFormsModule,
       HttpModule,
-      SelecionarmarcadosRoutingModule
+      SelecionarmarcadosRoutingModule,
+      CollapseModule.forRoot()
   ],
   declarations: [
     SelecionarMarcadoresDetalheComponent,
@@ -26,7 +28,6 @@ import { AppCamaraService } from './app.camara.service';
   exports: [
   ],
   providers: [
-    SelecionarMarcadoresService,
     AppCamaraService,
     AppSenadoService
   ],
