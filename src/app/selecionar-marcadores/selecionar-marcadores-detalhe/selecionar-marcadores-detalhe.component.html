@@ -1,7 +1,9 @@
 <br>
 
 <div class="container">
-  
+  <a [routerLink]="['/SeleMarc']" class="btn btn-outline-primary">Voltar</a>
+  <br>
+  <br>
   <div class="form-control" *ngIf="params.casa === 'senado'" >
   <h1>PL {{dadosPl?.Materia?.IdentificacaoMateria?.NumeroMateria || nulo}}/{{dadosPl?.Materia?.IdentificacaoMateria?.AnoMateria || nulo}}</h1>
 
@@ -88,12 +90,6 @@
             </div>
           </div>
           <br>
-          
-          <!-- •Nº e ano na outra Casa: PLS 82/2012
-          • Forma de tramitação: tramitação conclusiva (não vai a Plenário)
-          • Regime de tramitação: prioridade
-          • Tramitação: data, órgão, ação (... vários registros ...) -->
-  
           </div>
   </div>
   </div>
