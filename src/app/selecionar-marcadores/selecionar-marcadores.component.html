@@ -8,7 +8,7 @@
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
         <div class="form-group mb-3">
               <label  for="inputGroupSelect01">Projeto Lei</label>
-              <input type="pl" class="form-control" id="pl" aria-describedby="pl" placeholder="Enter Projeto de Lei">
+              <input type="pl" class="form-control" [(NgModel)]="pl.numero"  id="pl" aria-describedby="pl" placeholder="Enter Projeto de Lei">
           </div>
         </div>
 
@@ -16,7 +16,7 @@
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
             <div class="form-group mb-3">
                 <label for="inputGroupSelect01">Autor</label>
-                <input type="autor" class="form-control" id="autor" aria-describedby="autor" placeholder="Enter Autor">
+                <input type="autor" class="form-control" [(NgModel)]="pl.autor" id="autor" aria-describedby="autor" placeholder="Enter Autor">
             </div>
           </div>
 
@@ -24,7 +24,7 @@
           <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
               <div class="form-group mb-3">
                   <label for="inputGroupSelect01">Busca por Palavra Chave</label>
-                  <input type="palCha" class="form-control" id="palCha" aria-describedby="palCha" placeholder="Digite a Palavra Chave">
+                  <input type="palCha" class="form-control" [(NgModel)]="pl.pChave" id="palCha" aria-describedby="palCha" placeholder="Digite a Palavra Chave">
               </div>
             </div>
 </div>
@@ -34,11 +34,9 @@
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
         <div class="form-group mb-3">
             <label for="inputGroupSelect01">Casa Inicial</label>
-          <select class="custom-select" id="inputGroupSelect01">
-            <option selected>Choose...</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+          <select class="custom-select" [(ngModel)]='casaSel' (click)='casa(casaSel)'  id="inputGroupSelect01">
+            <option value="" selected>Seleccione...</option>
+            <option *ngFor="let casa of casas" [ngValue]="casa">{{casa.name}}</option>
           </select>
         </div>
       </div>
@@ -46,22 +44,18 @@
   <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
         <div class="form-group mb-3">
           <label for="inputGroupSelect01">Situação Atual</label>
-        <select class="custom-select" id="inputGroupSelect01">
-          <option selected>Choose...</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
+        <select class="custom-select" [(ngModel)]='pl.situacaoAtual' id="inputGroupSelect01">
+          <option value="" selected>Seleccione...</option>
+          <option v*ngFor="let situacaoAtual of situacaoAtuais" [ngValue]="situacaoAtual">{{situacaoAtual.name}}</option>
         </select>
       </div>
     </div>
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
             <div class="form-group mb-3">
               <label for="inputGroupSelect01">Ano</label>
-            <select class="custom-select" id="inputGroupSelect01">
-              <option selected>Choose...</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
+            <select class="custom-select" [(ngModel)]='pl.ano' class="custom-select"  id="inputGroupSelect01">
+              <option value="" selected>Seleccione...</option>
+              <option *ngFor="let ano of anos" [ngValue]="ano">{{ano.name}}</option>
             </select>
           </div>
         </div>
