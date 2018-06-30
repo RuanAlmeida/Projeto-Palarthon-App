@@ -2,20 +2,47 @@
     background-color: #246fc5;
 }
 
-.footer-copyright.text-center.py-3 {
+.footer-copyright.text-left.py-3 {
     background-color: #0e57ab;
 }
 
 
 .white-text {
     font-weight: 300;
+    font-size: 1em;
   }
   
   .footer-copyright { 
     color: rgba(255,255,255,0.8);
   }
   
-  
+  .row{
+    color: white;
+  }
+
   .text-sub {
       color: white;
+      font-size: 1em;
   }
+
+  .text-footer-right{
+      margin-left: 6%;
+  }
+
+//   .line-text {
+//       margin-left: 8%;
+//   }
+
+  .confi-img {
+      width: 50%;
+  }
+  
+  .list-unstyled{
+      text-align: right;
+  }
+
+  .footer {
+    position:absolute;
+    bottom:0;
+    width:100%;
+}
