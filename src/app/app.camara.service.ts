@@ -11,15 +11,15 @@ export class AppCamaraService {
     private http: HttpClient
   ) { }
 
-  getSituacaoes() {
+  getSituacoes() {
     return this.http.get(`${API_ROTA.CAMARA}referencias/situacoesProposicao`)
     .catch((e: any) => Observable.throw(this.errorHandler(e)));
   }
   
-    getPlsCamara(numero, siglaTipo, ano, autor, tramitacao, codSituacao) {
-      return this.http.get(`${API_ROTA.CAMARA}proposicoes?numero=${numero}&siglaTipo=${siglaTipo}&ano=${ano}&autor=${autor}&tramitacaoSenado=${tramitacao}&idSituacao=${codSituacao}&ordem=ASC&ordenarPor=id`)
-      .catch((e: any) => Observable.throw(this.errorHandler(e)));
-      };
+  getPlsCamara(numero, siglaTipo, ano, autor, tramitacao, codSituacao) {
+    return this.http.get(`${API_ROTA.CAMARA}proposicoes?numero=${numero}&siglaTipo=${siglaTipo}&ano=${ano}&autor=${autor}&tramitacaoSenado=${tramitacao}&idSituacao=${codSituacao}&ordem=ASC&ordenarPor=id`)
+    .catch((e: any) => Observable.throw(this.errorHandler(e)));
+    };
 
   getProposicaoDetalhe(codProposicao) {
     return this.http.get(`${API_ROTA.CAMARA}proposicoes/${codProposicao}`)
@@ -28,6 +28,16 @@ export class AppCamaraService {
   
   getProposicaoTramitacao(codProposicao) {
     return this.http.get(`${API_ROTA.CAMARA}proposicoes${codProposicao}/tramitacoes`)
+    .catch((e: any) => Observable.throw(this.errorHandler(e)));
+  }
+
+  getAutor(link) {
+    return this.http.get(link)
+    .catch((e: any) => Observable.throw(this.errorHandler(e)));
+  }
+
+  getDeputado(link) {
+    return this.http.get(link)
     .catch((e: any) => Observable.throw(this.errorHandler(e)));
   }
 

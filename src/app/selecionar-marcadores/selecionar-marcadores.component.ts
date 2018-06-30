@@ -54,7 +54,7 @@ export class SelecionarMarcadoresComponent implements OnInit {
 
   // Requisição HTTP dos dados da camara passando
   getCamaraSituacoes() {
-    this.appCamaraService.getSituacaoes()
+    this.appCamaraService.getSituacoes()
     .subscribe(res => this.camaraSituacoes = res.dados);
   }
 
