@@ -1,3 +1,27 @@
-.navbar-expand-lg{
-    background-color: #246fc5;
+.navbar.navbar-expand-md.navbar-dark.fixed-top{
+    background-color: #0e57ab;
  }
+
+ .navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
+    // font-family: fredericka-the-great, sans-serif;
+    font-size: 1.5em;
+font-family: patua-one, serif;
+
+ }
+
+ .font-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fdbf2c;
+    font-family: patua-one, serif;
+  }
+
+  .nav-link {
+    font-size: 1rem;
+    font-weight: bold;
+    
+  }
+
+  .navbar-nav.mr-auto {
+    margin-left: 5%;
+  }
