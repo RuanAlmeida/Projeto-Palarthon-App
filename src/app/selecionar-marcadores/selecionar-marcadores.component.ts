@@ -1,3 +1,5 @@
+import { AppSenadoService } from './../app.senado.service';
+import { AppCamaraService } from './../app.camara.service';
 import { Component, OnInit } from '@angular/core';
 import { SelecionarMarcadoresService } from '../selecionar-marcadores/selecionar-marcadores.service';
 
@@ -9,11 +11,13 @@ import { SelecionarMarcadoresService } from '../selecionar-marcadores/selecionar
 export class SelecionarMarcadoresComponent implements OnInit {
   camaraDados: any;
   senadoDados: any;
-  camaraSituacao: any;
-  senadoSituacao: any;
+  camaraSituacoes: any;
+  senadoSituacoes: any;
 
   constructor(
-    private selecionarMarcadoresService: SelecionarMarcadoresService
+    private selecionarMarcadoresService: SelecionarMarcadoresService,
+    private appCamaraService: AppCamaraService,
+    private appSenadoService: AppSenadoService 
   ) { }
 
   ngOnInit() {
@@ -25,37 +29,35 @@ export class SelecionarMarcadoresComponent implements OnInit {
     //       senadoDados.codSituacao,
     //        senadoDados.ordenar);
     // this.getCamara();
-    this.getSenadoSituacao();
-    this.getCamaraSituacao();
+    // this.getSenadoSituacao();
+    // this.getCamaraSituacao();
+    this.getSenadoSituacoes();
   }
 
   // Requisição HTTP dos dados do senado passando
   getSenado(siglaTipo, ano, autor, tramitacao, codSituacao, ordenar) {
-    this.selecionarMarcadoresService
-      .getSenado(siglaTipo, ano, autor, tramitacao, codSituacao, ordenar)
+    this.appSenadoService.getPlsSenado(siglaTipo, ano, autor, tramitacao, codSituacao, ordenar)
       .subscribe(res => this.senadoDados = res);
+  }
+
+  //Requisição HTTP dos dados da camara passando
+  getSenadoSituacoes() {
+    this.appSenadoService.getSituacoes()
+      .subscribe(res => this.senadoSituacoes = res.ListaSituacoes.Situacoes.Situacao);
   }
 
   // Requisição HTTP dos dados da camara passando siglaTipo, ano, autor, tramitacao, codSituacao e ordenar
   getCamara(siglaTipo, ano, autor, tramitacao, codSituacao, ordenar) {
-    this.selecionarMarcadoresService
-      .getCamara(siglaTipo, ano, autor, tramitacao, codSituacao, ordenar)
+    this.appCamaraService.getPlsCamara(siglaTipo, ano, autor, tramitacao, codSituacao, ordenar)
       .subscribe(res => this.camaraDados = res);
   }
 
   // Requisição HTTP dos dados da camara passando
-  getCamaraSituacao(codSituacao) {
-    this.selecionarMarcadoresService
-      .getCamaraSituacao(codSituacao)
-      .subscribe(res => this.camaraSituacao = res);
+  getCamaraSituacoes() {
+    this.appCamaraService.getSituacaoes()
+    .subscribe(res => this.camaraSituacoes = res.dados);
   }
 
-  // Requisição HTTP dos dados da camara passando
-  getSenadoSituacao(codSituacao) {
-    this.selecionarMarcadoresService
-      .getSenadoSituacao(codSituacao)
-      .subscribe(res => this.senadoSituacao = res);
-  }
 
 }
 
