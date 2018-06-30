@@ -1,3 +1,5 @@
+import { AppSenadoService } from './app.senado.service';
+import { AppCamaraService } from './app.camara.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -9,12 +11,14 @@ import { SelecionarMarcadoresModule } from './selecionar-marcadores/selecionar-m
 import { HomePageComponent } from './home-page/home-page.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   declarations: [
     AppComponent,
@@ -22,7 +26,10 @@ import { HeaderComponent } from './header/header.component';
     HeaderComponent,
     FooterComponent
   ],
-  providers: [],
+  providers: [
+    AppCamaraService,
+    AppSenadoService
+  ],
   bootstrap: [AppComponent],
   entryComponents : []
 })
