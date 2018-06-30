@@ -6,7 +6,6 @@ import { HttpModule } from '@angular/http';
 import '../util/rxjs-extensions';
 
 import { SelecionarMarcadoresDetalheComponent } from './selecionar-marcadores-detalhe/selecionar-marcadores-detalhe.component';
-import { SelecionarMarcadoresService } from './selecionar-marcadores.service';
 import { SelecionarMarcadoresComponent } from './selecionar-marcadores.component';
 import { SelecionarmarcadosRoutingModule } from './selecionar-marcadores.routing.module';
 
@@ -25,7 +24,6 @@ import { SelecionarmarcadosRoutingModule } from './selecionar-marcadores.routing
   exports: [
   ],
   providers: [
-    SelecionarMarcadoresService
   ],
 entryComponents : [
 ]

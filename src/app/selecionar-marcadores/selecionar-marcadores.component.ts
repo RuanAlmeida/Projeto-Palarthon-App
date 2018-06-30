@@ -1,11 +1,11 @@
-import { Component, OnInit } from "@angular/core";
-import { AppSenadoService } from "./../app.senado.service";
-import { AppCamaraService } from "../app.camara.service";
+import { Component, OnInit } from '@angular/core';
+import { AppSenadoService } from './../app.senado.service';
+import { AppCamaraService } from '../app.camara.service';
 
 @Component({
-  selector: "app-selecionar-marcadores",
-  templateUrl: "./selecionar-marcadores.component.html",
-  styleUrls: ["./selecionar-marcadores.component.scss"]
+  selector: 'app-selecionar-marcadores',
+  templateUrl: './selecionar-marcadores.component.html',
+  styleUrls: ['./selecionar-marcadores.component.scss']
 })
 export class SelecionarMarcadoresComponent implements OnInit {
   camaraDados: any;
@@ -48,9 +48,9 @@ export class SelecionarMarcadoresComponent implements OnInit {
   situacaoAtuais: any[];
 
   casas: [
-    { name: "Senado"; id: "1" },
-    { name: "Câmara"; id: "2" },
-    { name: "Senado e Câmara"; id: "3" }
+    { name: 'Senado'; id: '1' },
+    { name: 'Câmara'; id: '2' },
+    { name: 'Senado e Câmara'; id: '3' }
   ];
 
   constructor(
@@ -110,9 +110,9 @@ export class SelecionarMarcadoresComponent implements OnInit {
   }
 
   casa(casa) {
-    if (casa.id === "1") {
+    if (casa.id === '1') {
       this.getAllSitacoesSenado();
-    } else if (casa.id === "2") {
+    } else if (casa.id === '2') {
       this.getAllSitacoesCamara();
     } else {
     }
