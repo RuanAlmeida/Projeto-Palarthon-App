@@ -1,6 +1,73 @@
 <br>
 
 <div class="container">
+
+      <div class="form-control ">
+        
+          <div class="row">
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                <div class="form-group mb-3">
+                      <label  for="inputGroupSelect01">Projeto Lei</label>
+                      <input type="pl" class="form-control" id="pl" aria-describedby="pl" placeholder="Enter Projeto de Lei">
+                  </div>
+                </div>
+        
+        
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                    <div class="form-group mb-3">
+                        <label for="inputGroupSelect01">Autor</label>
+                        <input type="autor" class="form-control" id="autor" aria-describedby="autor" placeholder="Enter Autor">
+                    </div>
+                  </div>
+        
+                  
+                  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                      <div class="form-group mb-3">
+                          <label for="inputGroupSelect01">Busca por Palavra Chave</label>
+                          <input type="palCha" class="form-control" id="palCha" aria-describedby="palCha" placeholder="Digite a Palavra Chave">
+                      </div>
+                    </div>
+        </div>
+        
+        <div class="row">
+          
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                <div class="form-group mb-3">
+                    <label for="inputGroupSelect01">Casa Atual</label>
+                  <select class="custom-select" id="inputGroupSelect01">
+                    <option selected>Choose...</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                </div>
+              </div>
+              
+          <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                <div class="form-group mb-3">
+                  <label for="inputGroupSelect01">Situação Atual</label>
+                <select class="custom-select" id="inputGroupSelect01">
+                  <option selected>Choose...</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </div>
+            </div>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                    <div class="form-group mb-3">
+                      <label for="inputGroupSelect01">Ano</label>
+                    <select class="custom-select" id="inputGroupSelect01">
+                      <option selected>Choose...</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                  </div>
+                </div>
+        
+        </div>
+        </div>
   
   <!-- <div class="form-control ">
 
@@ -70,25 +137,23 @@
 
 <div class="form-control ">
     <div class="row">
-        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+        <div class="col-md-6 col-xs-12">
 
-    <div class="card" style="width: 18rem;">
+    <div class="card">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a [routerLink]="['112051','senado']" class="card-link">Ver Detalhe</a>
+          <h5 class="card-title">PL 00110/2013</h5>
+          <p class="card-text">Proíbe a utilização de logomarca diversa do Brasão da República Federativa do Brasil na publicidade oficial da administração pública federal.</p>
+          <a [routerLink]="['112051','senado']" class="card-link">Ver Detalhes</a>
         </div>
       </div>
     </div>
 
-      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-      <div class="card" style="width: 18rem;">
+      <div class="col-md-6 col-xs-12">
+      <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a [routerLink]="['15419','camara']" class="card-link">Ver Detalhe</a>
+            <h5 class="card-title">PL 407/1999</h5>
+            <p class="card-text">Dá nova redação ao art. 7º e ao art. 12 da Lei nº 8.935, de 18 de novembro de 1994, ampliando a competência dos oficiais de registro civil das pessoas naturais e de interdições e tutelas.</p>
+            <a [routerLink]="['15419','camara']" class="card-link">Ver Detalhes</a>
           </div>
         </div>
 
@@ -97,8 +162,11 @@
 
 </div>
 
-
+<!-- 
 <div ng class="form-control ">
+
+    <div class="row">
+
     <div ng-if="casa.id === '1'" *ngFor="let projeto of senadoDados" class="row">
         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
 
@@ -134,4 +202,4 @@
 </div>
 
 
-</div>
+</div> -->
