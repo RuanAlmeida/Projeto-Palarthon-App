@@ -1,3 +1,76 @@
-<p>
-  selecionar-marcadores-detalhe works!
-</p>
+<br>
+
+<div class="container">
+  
+  <div class="form-control" *ngIf="params.casa === 'senado'" >
+  <h1>PL {{dadosPl?.Materia?.IdentificacaoMateria?.NumeroMateria || nulo}}/{{dadosPl?.Materia?.IdentificacaoMateria?.AnoMateria || nulo}}</h1>
+
+  <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <h5>Autor</h5>
+        <p>{{dadosPl?.Materia?.Autoria?.Autor[0]?.NomeAutor || nulo}} - {{dadosPl?.Materia?.Autoria?.Autor[0]?.IdentificacaoParlamentar?.SiglaPartidoParlamentar || nulo}} / {{dadosPl?.Materia?.Autoria?.Autor[0]?.IdentificacaoParlamentar?.UfParlamentar || nulo}}</p>
+        <h5>Ementa</h5>
+        <p>{{dadosPl?.Materia?.DadosBasicosMateria?.EmentaMateria || nulo}}</p>
+        <h5>Explicação da ementa</h5>
+        <p>{{dadosPl?.Materia?.DadosBasicosMateria?.ExplicacaoEmentaMateria || nulo}}</p>
+        <h5>Situação atual</h5>
+        <h6>Data: </h6><p>{{dadosPl?.Materia?.SituacaoAtual?.Autuacoes?.Autuacao?.Situacao?.DataSituacao | date:'dd/MM/y' || nulo}}</p>
+        <h6>Local: </h6><p>{{dadosPl?.Materia?.SituacaoAtual?.Autuacoes?.Autuacao?.Local?.NomeLocal || nulo}}</p>
+        <h6>Descrição: </h6><p>{{dadosPl?.Materia?.SituacaoAtual?.Autuacoes?.Autuacao?.Situacao?.DescricaoSituacao || nulo}}</p>
+        <h6>Tramitação:</h6>
+        
+        <!-- •Nº e ano na outra Casa: PLS 82/2012
+        • Forma de tramitação: tramitação conclusiva (não vai a Plenário)
+        • Regime de tramitação: prioridade
+        • Tramitação: data, órgão, ação (... vários registros ...) -->
+
+        </div>
+</div>
+</div>
+
+<div class="form-control" *ngIf="params.casa === 'camara'" >
+    <h1>PL {{dadosPl?.numero || nulo}}/{{dadosPl?.ano || nulo}}</h1>
+  
+    <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+          <h5>Autor</h5>
+          <p>{{autorCamara?.nome || nulo}} - {{autorCamara?.siglaPartido || nulo}} / {{autorCamara?.siglaUf || nulo}}</p>
+          <h5>Ementa</h5>
+          <p>{{dadosPl?.ementa}}</p>
+          <h5>Explicação da ementa</h5>
+          <p>{{dadosPl?.ementaDetalhada || nulo}}</p>
+          <h5>Situação atual</h5>
+          <h6>Data: </h6><p>{{dadosPl?.statusProposicao.dataHora | date:'dd/MM/y' || nulo}}</p>
+          <h6>Descrição: </h6><p>{{dadosPl?.statusProposicao.descricaoSituacao || nulo}}</p>
+          <h5>Regime de tramitação</h5>
+          <p>{{dadosPl?.statusProposicao.regime || nulo}}</p>
+          <h5>Tramitação</h5>
+          <div class="accordion" id="accordionExample">
+            <div class="card">
+              <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                  <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Collapsible Group Item #1
+                  </button>
+                </h5>
+              </div>
+          
+              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- •Nº e ano na outra Casa: PLS 82/2012
+          • Forma de tramitação: tramitação conclusiva (não vai a Plenário)
+          • Regime de tramitação: prioridade
+          • Tramitação: data, órgão, ação (... vários registros ...) -->
+  
+          </div>
+  </div>
+  </div>
+
+
+</div>

@@ -11,7 +11,7 @@ import { SelecionarMarcadoresDetalheComponent } from './selecionar-marcadores-de
 
 const SelecionarMRoutes = [
     { path: '', component: SelecionarMarcadoresComponent },
-    { path: ':id/detalhe', component: SelecionarMarcadoresDetalheComponent }
+    { path: ':cod/:casa', component: SelecionarMarcadoresDetalheComponent }
 
 ];
 
