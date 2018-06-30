@@ -11,7 +11,6 @@ import { AppCamaraService } from './app.camara.service';
 export class SelecionarMarcadoresComponent implements OnInit {
   camaraDados: any;
   senadoDados: any;
-
   camaraSituacao: any;
   senadoSituacao: any;
   casaSel: any;
@@ -50,40 +49,40 @@ export class SelecionarMarcadoresComponent implements OnInit {
   situacaoAtuais: any[];
 
   casas: [
-    { name: 'Senado'; id: '1' },
-    { name: 'Câmara'; id: '2' },
-    { name: 'Senado e Câmara'; id: '3' }
+    { name: 'Senado', id: '1' },
+    { name: 'Câmara', id: '2' },
+    { name: 'Senado e Câmara', id: '3' }
   ];
 
   constructor(
     private senadoService: AppSenadoService,
     private camaraService: AppCamaraService
-  ) {}
+  ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
+
+
 
   // Requisição HTTP dos dados do senado passando
   getSenado(numero, siglaTipo, ano, autor, tramitacao, codSituacao) {
-    // this.senadoService
-    //   .getPlsSenado(numero, siglaTipo, ano, autor, tramitacao, codSituacao)
-    //   .subscribe(res => this.senadoDados = res);
+    this.senadoService
+      .getPlsSenado(numero, siglaTipo, ano, autor, tramitacao, codSituacao)
+      .subscribe(res => this.senadoDados = res);
   }
 
   // Requisição HTTP dos dados da camara passando
 
   getSenadoSituacoes() {
-    this.senadoService
-      .getSituacoes()
-      .subscribe(
-        res => (this.situacaoAtuais = res.ListaSituacoes.Situacoes.Situacao)
-      );
+    this.senadoService.getSituacoes()
+      .subscribe(res => this.situacaoAtuais = res.ListaSituacoes.Situacoes.Situacao);
   }
 
   // Requisição HTTP dos dados da camara passando siglaTipo, ano, autor, tramitacao, codSituacao e ordenar
-  getCamara(numero, siglaTipo, ano, autor, tramitacao, codSituacao, ordenar) {
-    // this.camaraService
-    //   .getPlsCamara(numero, siglaTipo, ano, autor, tramitacao, codSituacao, ordenar)
-    //   .subscribe(res => this.camaraDados = res);
+  getCamara(numero, siglaTipo, ano, autor, tramitacao, codSituacao) {
+    this.camaraService
+      .getPlsCamara(numero, siglaTipo, ano, autor, tramitacao, codSituacao)
+      .subscribe(res => this.camaraDados = res);
   }
 
   // Requisição HTTP dos dados da camara passando
@@ -103,13 +102,18 @@ export class SelecionarMarcadoresComponent implements OnInit {
   getAllSitacoesSenado() {
     this.senadoService
       .getSituacoes()
-      .subscribe(res => (this.situacaoAtuais = res));
+      .subscribe(
+        res => this.situacaoAtuais = res
+      );
   }
   getAllSitacoesCamara() {
     this.senadoService
       .getSituacoes()
-      .subscribe(res => (this.situacaoAtuais = res));
+      .subscribe(
+        res => this.situacaoAtuais = res
+      );
   }
+
 
   casa(casa) {
     if (casa.id === '1') {
@@ -117,8 +121,8 @@ export class SelecionarMarcadoresComponent implements OnInit {
     } else if (casa.id === '2') {
       this.getAllSitacoesCamara();
     } else {
+
     }
   }
 
 }
-
