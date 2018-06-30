@@ -1,4 +1,3 @@
-
 import { Component, OnInit } from '@angular/core';
 import { AppSenadoService } from './app.senado.service';
 import { AppCamaraService } from './app.camara.service';

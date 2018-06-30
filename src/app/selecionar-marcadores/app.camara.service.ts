@@ -27,7 +27,7 @@ export class AppCamaraService {
     };
   
   getProposicaoTramitacao(codProposicao) {
-    return this.http.get(`${API_ROTA.CAMARA}proposicoes${codProposicao}/tramitacoes`)
+    return this.http.get(`${API_ROTA.CAMARA}proposicoes/${codProposicao}/tramitacoes`)
     .catch((e: any) => Observable.throw(this.errorHandler(e)));
   }
 
