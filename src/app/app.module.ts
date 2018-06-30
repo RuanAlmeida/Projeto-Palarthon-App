@@ -1,5 +1,3 @@
-import { AppSenadoService } from './app.senado.service';
-import { AppCamaraService } from './app.camara.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -26,10 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
     HeaderComponent,
     FooterComponent
   ],
-  providers: [
-    AppCamaraService,
-    AppSenadoService
-  ],
+  providers: [],
   bootstrap: [AppComponent],
   entryComponents : []
 })

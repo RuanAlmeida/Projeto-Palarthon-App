@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
-import { API_ROTA } from './api';
+import { API_ROTA } from './../api';
 
 @Injectable()
 export class AppSenadoService {
