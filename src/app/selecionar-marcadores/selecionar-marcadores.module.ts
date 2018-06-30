@@ -9,6 +9,8 @@ import { SelecionarMarcadoresDetalheComponent } from './selecionar-marcadores-de
 import { SelecionarMarcadoresService } from './selecionar-marcadores.service';
 import { SelecionarMarcadoresComponent } from './selecionar-marcadores.component';
 import { SelecionarmarcadosRoutingModule } from './selecionar-marcadores.routing.module';
+import { AppSenadoService } from './app.senado.service';
+import { AppCamaraService } from './app.camara.service';
 
 @NgModule({
   imports: [
@@ -25,7 +27,9 @@ import { SelecionarmarcadosRoutingModule } from './selecionar-marcadores.routing
   exports: [
   ],
   providers: [
-    SelecionarMarcadoresService
+    SelecionarMarcadoresService,
+    AppCamaraService,
+    AppSenadoService
   ],
 entryComponents : [
 ]
