@@ -9,12 +9,14 @@ import { SelecionarMarcadoresModule } from './selecionar-marcadores/selecionar-m
 import { HomePageComponent } from './home-page/home-page.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   declarations: [
     AppComponent,

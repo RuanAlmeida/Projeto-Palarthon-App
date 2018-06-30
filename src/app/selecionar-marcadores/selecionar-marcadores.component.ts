@@ -1,6 +1,9 @@
+import { AppSenadoService } from './../selecionar-marcadores/app.senado.service';
+import { AppCamaraService } from './../selecionar-marcadores/app.camara.service';
 import { Component, OnInit } from '@angular/core';
 import { AppSenadoService } from './../app.senado.service';
 import { AppCamaraService } from '../app.camara.service';
+
 
 @Component({
   selector: 'app-selecionar-marcadores',
@@ -10,6 +13,7 @@ import { AppCamaraService } from '../app.camara.service';
 export class SelecionarMarcadoresComponent implements OnInit {
   camaraDados: any;
   senadoDados: any;
+
   camaraSituacao: any;
   senadoSituacao: any;
   casaSel: any;
@@ -117,4 +121,6 @@ export class SelecionarMarcadoresComponent implements OnInit {
     } else {
     }
   }
+
 }
+
