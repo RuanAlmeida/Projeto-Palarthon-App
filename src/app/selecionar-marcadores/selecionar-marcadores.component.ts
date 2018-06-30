@@ -1,14 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { AppSenadoService } from './../app.senado.service';
-import { AppCamaraService } from '../app.camara.service';
+import { Component, OnInit } from "@angular/core";
+import { AppSenadoService } from "./../app.senado.service";
+import { AppCamaraService } from "../app.camara.service";
 
 @Component({
-  selector: 'app-selecionar-marcadores',
-  templateUrl: './selecionar-marcadores.component.html',
-  styleUrls: ['./selecionar-marcadores.component.scss']
+  selector: "app-selecionar-marcadores",
+  templateUrl: "./selecionar-marcadores.component.html",
+  styleUrls: ["./selecionar-marcadores.component.scss"]
 })
 export class SelecionarMarcadoresComponent implements OnInit {
-
   camaraDados: any;
   senadoDados: any;
   camaraSituacao: any;
@@ -49,20 +48,17 @@ export class SelecionarMarcadoresComponent implements OnInit {
   situacaoAtuais: any[];
 
   casas: [
-    { name: 'Senado', id: '1' },
-    { name: 'Câmara', id: '2' },
-    { name: 'Senado e Câmara', id: '3' }
+    { name: "Senado"; id: "1" },
+    { name: "Câmara"; id: "2" },
+    { name: "Senado e Câmara"; id: "3" }
   ];
 
   constructor(
     private senadoService: AppSenadoService,
     private camaraService: AppCamaraService
-  ) { }
+  ) {}
 
-  ngOnInit() {
-  }
-
-
+  ngOnInit() {}
 
   // Requisição HTTP dos dados do senado passando
   getSenado(numero, siglaTipo, ano, autor, tramitacao, codSituacao) {
@@ -74,8 +70,11 @@ export class SelecionarMarcadoresComponent implements OnInit {
   // Requisição HTTP dos dados da camara passando
 
   getSenadoSituacoes() {
-    this.senadoService.getSituacoes()
-      .subscribe(res => this.situacaoAtuais = res.ListaSituacoes.Situacoes.Situacao);
+    this.senadoService
+      .getSituacoes()
+      .subscribe(
+        res => (this.situacaoAtuais = res.ListaSituacoes.Situacoes.Situacao)
+      );
   }
 
   // Requisição HTTP dos dados da camara passando siglaTipo, ano, autor, tramitacao, codSituacao e ordenar
@@ -102,28 +101,20 @@ export class SelecionarMarcadoresComponent implements OnInit {
   getAllSitacoesSenado() {
     this.senadoService
       .getSituacoes()
-      .subscribe(
-        res => this.situacaoAtuais = res
-      );
+      .subscribe(res => (this.situacaoAtuais = res));
   }
   getAllSitacoesCamara() {
     this.senadoService
       .getSituacoes()
-      .subscribe(
-        res => this.situacaoAtuais = res
-      );
+      .subscribe(res => (this.situacaoAtuais = res));
   }
-
 
   casa(casa) {
-    if (casa.id === '1') {
+    if (casa.id === "1") {
       this.getAllSitacoesSenado();
-    } else if (casa.id === '2') {
+    } else if (casa.id === "2") {
       this.getAllSitacoesCamara();
     } else {
-
     }
   }
-
-
 }
